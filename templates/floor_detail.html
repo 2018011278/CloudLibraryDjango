@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>当前楼层: {{ floor.library }} {{ floor.floor }}层</h1>
+    <p><strong>存储位置:</strong>{{ MEDIA_URL }}{{ floor.image }}</p>
+    <p><strong>楼层图:</strong> {{ floor.image }}</p>
+    <img src= "{{ MEDIA_URL }}{{ floor.image }}" height="300" width="300">
+    <p><strong>全景图:</strong> {{ floor.panorama }}</p>
+    <img src= "{{ MEDIA_URL }}{{ floor.panorama }}" height="300" width="300">
+    <br><br><br>
+
+<a href="{% url 'Comment:floor_update' floor.id %}">更新</a>
+<a href="{% url 'Comment:floor_delete' floor.id %}">删除</a>
+{% endblock %}

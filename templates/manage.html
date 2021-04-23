@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h1>资源管理</h1>
+  <p>可管理资源:</p>
+  <ul>
+    <li><strong>楼层图:</strong> {{ num_floors }}</li>
+    <li><strong>参观点:</strong> {{ num_points }}</li>
+    <li><strong>服务资源:</strong> {{ num_articles }}</li>
+    <li><strong>欢迎图片:</strong> {{ num_welcomeimages }}</li>
+  </ul>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>当前服务资源: {{ article.title }} </h1>
+    <p><strong>标题/内容:</strong> {{ article.title }}</p>
+    <p><strong>文章网址:</strong> {{ article.url }}</p>
+    <br><br><br>
+
+<a href="{% url 'Comment:article_update' article.id %}">更新</a>
+<a href="{% url 'Comment:article_delete' article.id %}">删除</a>
+{% endblock %}

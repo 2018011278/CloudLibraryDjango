@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>已储存参观点</h1>
+
+    {% if point_list %}
+    <ul>
+
+      {% for point in point_list %}
+      <li>
+        <a href="{{ point.get_absolute_url }}">{{ point.position }}</a>({{ point.library }})({{point.floor}}层)(坐标x= {{ point.x }})(坐标y= {{ point.y }})
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>暂无参观点.</p>
+    {% endif %}
+    <li>
+          <a href="{% url 'Comment:point_create' %}">添加</a>
+          </li>
+{% endblock %}

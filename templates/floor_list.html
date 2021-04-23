@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>已储存楼层</h1>
+
+    {% if floor_list %}
+    <ul>
+
+      {% for floor in floor_list %}
+      <li>
+        <a href="{{ floor.get_absolute_url }}">{{ floor.library }}</a> ({{floor.floor}}层)
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>暂无楼层图.</p>
+    {% endif %}
+    <li>
+          <a href="{% url 'Comment:floor_create' %}">添加</a>
+          </li>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>当前参观点: {{ point.position }}</h1>
+    <p><strong>馆属:</strong> {{ point.library }}</p>
+    <p><strong>层数:</strong> {{ point.floor }}</p>
+    <p><strong>X坐标:</strong> {{ point.x }}</p>
+    <p><strong>Y坐标:</strong> {{ point.y }}</p>
+    <p><strong>描述信息:</strong> {{ point.describe }}</p>
+    <p><strong>导览顺序(0为不在导览路线内):</strong> {{ point.order }}</p>
+    <p><strong>描述图片:</strong></p>
+    <img src= "{{ MEDIA_URL }}{{ point.image }}" height="300" width="300"><br>
+    <p><strong>描述视频:</strong></p>
+    <video width="320" height="240" controls>
+    <source src="{{ MEDIA_URL }}{{ point.video }}">
+    </video>
+    <br><br><br>
+    <a href="{% url 'Comment:point_update' point.id %}">更新</a>
+    <a href="{% url 'Comment:point_delete' point.id %}">删除</a>
+    <form action="{% url 'Comment:qr' %}" method = GET>
+        <input name="position" type="hidden" value={{ point.position }}>
+        <input name="library" type="hidden" value={{ point.library }}>
+        <input name="floor" type="hidden" value={{ point.floor }}>
+        <input name="describe" type="hidden" value={{ point.describe }}>
+        <input type="submit" value="生成二维码"/>
+    </form>
+{% endblock %}

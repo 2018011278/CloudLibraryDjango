@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>当前欢迎图片:</h1>
+    <img src= "{{ MEDIA_URL }}{{ welcomeimage.image }}">
+    <br><br><br>
+<a href="{% url 'Comment:welcomeImage_update' welcomeimage.id %}">更新</a>
+<a href="{% url 'Comment:welcomeImage_delete' welcomeimage.id %}">删除</a>
+{% endblock %}

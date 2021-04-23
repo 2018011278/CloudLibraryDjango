@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>已储存服务资源</h1>
+
+    {% if article_list %}
+    <ul>
+
+      {% for article in article_list %}
+      <li>
+        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a> ({{article.url}})
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>暂无服务资源</p>
+    {% endif %}
+    <li>
+          <a href="{% url 'Comment:article_create' %}">添加</a>
+          </li>
+{% endblock %}

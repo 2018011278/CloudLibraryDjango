@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>已储存欢迎图片</h1>
+
+    {% if welcomeimage_list %}
+    <ul>
+
+      {% for welcomeimage in welcomeimage_list %}
+      <li>
+        <a href="{{ welcomeimage.get_absolute_url }}">图片{{ welcomeimage.image }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>暂无欢迎图片.</p>
+    {% endif %}
+    <li>
+          <a href="{% url 'Comment:welcomeImage_create' %}">添加</a>
+          </li>
+{% endblock %}

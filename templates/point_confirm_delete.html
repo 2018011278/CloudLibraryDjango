@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>删除参观点</h1>
+
+<p>确定要删除参观点：{{ point.position }}吗?</p>
+
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+    <input type="submit" action="" value="确定" />
+    <input type="button" onclick="javascript:history.back(-1);" value="取消"/>
+</form>
+
+{% endblock %}>
